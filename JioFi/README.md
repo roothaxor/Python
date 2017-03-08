@@ -3,4 +3,4 @@
     use : " pip install bs4 or python --pip install bs4 " also dowload urllib2 lib using same command
     after done! click on " jio.bat " Notice: make sure PC connected to your jiofi3 device 
 #Screenshot 
-![ScreenShot](https://{github.com/roothaxor/Python/blob/master/JioFi/Screenshot.png})
+![Alt text](Screenshot.png?raw=true "Screenshot")
