@@ -20,7 +20,7 @@ elif (t[5].text != "Lost Mode"):
 #for x in range(0,14):
 #	print t[x].text
 banner = '''
-Priv8 Imei Info Python Script 
+idevice ( Apple Products ) Imei Info Python Script 
 '''
 if (os.name == "nt"):
 	os.system('cls')
