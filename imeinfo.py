@@ -1,4 +1,3 @@
-#!usr/bin/python
 import urllib2, os, sys, time
 from bs4 import BeautifulSoup as bs
 
@@ -13,14 +12,18 @@ open = urllib2.urlopen(link).read()
 soup = bs(open, 'html.parser')
 t =  soup.findAll('span')
 text = []
-if (t[5].text == "Lost Mode"):
-	stolen = "Phone is either Stolen or lost"
-elif (t[5].text != "Lost Mode"):
-	stolen = "Phone Activated"
+try:
+	if (t[5].text == "Lost Mode"):
+		stolen = "Phone is either Stolen or lost"
+	elif (t[5].text != "Lost Mode"):
+		stolen = "Phone Activated"
+except IndexError:
+	print "\nSorry mate You have reached hourly limit for checking imei, Wait 1 Hour then try again"
+	sys.exit()
 #for x in range(0,14):
 #	print t[x].text
 banner = '''
-idevice ( Apple Products ) Imei Info Python Script 
+iDevice Imei Info Python Script 
 '''
 if (os.name == "nt"):
 	os.system('cls')
@@ -29,7 +32,11 @@ elif (os.name == "posix"):
 	os.system('clear')
 	print banner
 hr = soup.findAll('a')
-print "\n"+t[0].text + t[1].text +"\n"+ t[2].text + t[3].text +"\n"+ t[4].text + stolen + "\n"+ t[6].text + t[7].text +"\n" +t[8].text + t[9].text + "\n"+t[10].text +t[11].text+"\n"+t[12].text+t[13].text +"\n"+ "Check For Blacklist: " + hr[4]['href'] + "\n\n"+ "Gathering Information From Blacklist url ....\n"
+try:
+	print "\n"+t[0].text + t[1].text +"\n"+ t[2].text + t[3].text +"\n"+ t[4].text + stolen + "\n"+ t[6].text + t[7].text +"\n" +t[8].text + t[9].text + "\n"+t[10].text +t[11].text+"\n"+t[12].text+t[13].text +"\n"+ "Check For Blacklist: " + hr[4]['href'] + "\n\n"+ "Gathering Information From Blacklist url ....\n"
+except KeyError:
+	print "Sorry Server Dont Have Information On Imei: %s \n\nNOTICE: i mainly built for checking idevices IMEI's So If You Dont have an Iphone or some like that you better delete me! "%(imei)
+	sys.exit()
 time.sleep(3)
 link1 = hr[4]['href']
 open1 = urllib2.urlopen(link1).read()
