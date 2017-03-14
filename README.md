@@ -1,4 +1,4 @@
-# Pyhon - Cool Stuff
+# Python - Cool Stuff
 
     DGA_v1.py	~ Python Code From Crypto Virus, a domain generation algo
     DGA_v2.py	~ Same Work as DGA_v1 but with more powerfull algo
