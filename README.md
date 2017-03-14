@@ -12,4 +12,4 @@
     split.py ~ Split big file into smaller files
     sym.py ~ Symlink bypass 2016 Linux servers.
 
-# Follow @root_haxor
+# Shameless Plug: @root_haxor
