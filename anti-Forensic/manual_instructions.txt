@@ -1,0 +1,2 @@
+Disable last access logs ( ADMIN Priv's ) - digital timeline anti-forensic 
+Command : fsutil behavior set disablelastaccess 1
