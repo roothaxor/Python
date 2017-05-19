@@ -21,5 +21,13 @@
 | emailext.py | Extract email list from files |
 | exif_remove.py | Remove Exif data from JPG, PNG files |
 | geo-trace.py | Trace IP address using Maxmind database |
+| imeinfo.py | Info for Apple Imie's |
+| proxy.py | Get list of alive proxies |
+| py_gmail.py | Gmail with python |
+| rename_many_once.py | Rename many files at once |
+| sizecheck.py | Check size of site using URL |
+| split.py | Split big files into small one |
+| sym.py | Symlink exploit 2016 Servers |
+| target-info.py | Get some info on target system |
 
 **For Free, Hell Yeah!**
