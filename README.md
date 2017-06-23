@@ -3,7 +3,7 @@
 # Projects
 * [AES_CBC](https://github.com/roothaxor/Python/tree/master/AES_CBC)	: Python AES Working example without cipher limit
 * [Facebook-videos-downloader](https://github.com/roothaxor/Python/tree/master/Facebook-videos-downloader) : Download multiple videos with one click
-* [JioFi](https://github.com/roothaxor/Python/tree/master/JioFi) : Jio MIFI device information Command line
+* [JioFi](https://github.com/roothaxor/Jio-MiFi3) : Jio MIFI device information Command line
 * [anti-Forensic](https://github.com/roothaxor/Python/tree/master/anti-Forensic) : Under-Construction
 
 # Scripts
