@@ -1,7 +1,9 @@
 #!/usr/bin/python
 #Email Filter multi thread.
-#Python 2.7.x
-#Copy this code and make a filter.py. Then put files with emails in same directory of filter.py, open cmd run the script and wait. :)
+#Fully automated Script, Single Command in Terminal and woooohooooo
+#Copy this code, make a script.py
+#Then put files with emails in same directory of script.py, open cmd run the script and wait. :)
+#Usage:python script.py 13 ( 13 is number of threads you want to run, default is 10 )
 import re, os , sys, threading, time
 
 def splitlist(seq, num):
@@ -58,10 +60,16 @@ def main(emails):
 			if str(dmn) not in ru + au + microsoft_family + google_family + yahoo_family + aol_family:
 				file = open('result/unknown.txt', 'a')
 				file.write(i)
-	except Exception:
+	except Exception as e:
 		pass
 
 if __name__ == '__main__':
+	global shit
+	try:
+		shit = int(sys.argv[1])
+	except IndexError:
+		shit = 9
+		pass
 	start_time = time.time()
 	if not os.path.isdir('result'):
 		os.mkdir('result')
@@ -70,24 +78,15 @@ if __name__ == '__main__':
 	files = [f for f in os.listdir(listdir) if f.endswith(tuple(ext))] #Use tuple() for multiple
 	for file in files:
 		startx = open(file, 'r').readlines()
-		lists = splitlist(startx, 9) # 2 meens 2, 9 means 9
-		t = threading.Thread(target=main, args=(lists[0],))
-		t1 = threading.Thread(target=main, args=(lists[1],))
-		t2 = threading.Thread(target=main, args=(lists[2],))
-		t3 = threading.Thread(target=main, args=(lists[3],))
-		t4 = threading.Thread(target=main, args=(lists[4],))
-		t5 = threading.Thread(target=main, args=(lists[5],))
-		t6 = threading.Thread(target=main, args=(lists[6],))
-		t7 = threading.Thread(target=main, args=(lists[7],))
-		t8 = threading.Thread(target=main, args=(lists[8],))
-		t.start()
-		t1.start()
-		t2.start()
-		t3.start()
-		t4.start()
-		t5.start()
-		t6.start()
-		t7.start()
-		t8.start()
+		lists = splitlist(startx, shit) # 0 - 8, seems to have no 8
+		for i in range(0,shit): # 0 - 8
+			t = threading.Thread(target=main, args=(lists[i],))
+			tp =  t.start()
+			print("Task {} assigned to thread: {}".format(i, threading.current_thread().getName()))
+	print("\nTotal active threads : {}".format(threading.activeCount()))
 	took = time.time() - start_time
-	print "\nCore Execution time : ", took,"\n\nFiltering processes have been started, Listen songs for a while."
+	print "\nCore Execution time : ", str(took)[:4]+" Seconds","\n\nFiltering processes have been started, Listen songs for a while."
+	startt = time.time()
+	t.join()
+	stopp = time.time() - startt
+	print "\nTasks Completed, Total time: ",str(stopp)[:4],"Seconds"
